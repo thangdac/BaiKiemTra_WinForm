@@ -12,9 +12,16 @@ namespace BaiKiemTra_WinForm
 {
     public partial class Form1 : Form
     {
+        public BangCap BangCap;
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void btnBangcap_Click(object sender, EventArgs e)
+        {
+            BangCap bangcap = new BangCap();
+            bangcap.Show();
         }
     }
 }
