@@ -23,5 +23,10 @@ namespace BaiKiemTra_WinForm
             BangCap bangcap = new BangCap();
             bangcap.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+               
+        }
     }
 }

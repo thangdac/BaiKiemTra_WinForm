@@ -31,10 +31,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblMaBangCap = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtTenBC = new System.Windows.Forms.TextBox();
-            this.txtMaBC = new System.Windows.Forms.TextBox();
             this.dgvDanhSach = new System.Windows.Forms.DataGridView();
             this.dgvMaBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTenBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,10 +54,10 @@
             this.groupBox1.BackColor = System.Drawing.SystemColors.Menu;
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lblMaBangCap);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.txtTenBC);
-            this.groupBox1.Controls.Add(this.txtMaBC);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 75);
             this.groupBox1.Name = "groupBox1";
@@ -84,6 +84,14 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Tên Bằng Cấp";
             // 
+            // lblMaBangCap
+            // 
+            this.lblMaBangCap.AutoSize = true;
+            this.lblMaBangCap.Location = new System.Drawing.Point(152, 54);
+            this.lblMaBangCap.Name = "lblMaBangCap";
+            this.lblMaBangCap.Size = new System.Drawing.Size(0, 25);
+            this.lblMaBangCap.TabIndex = 2;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -106,13 +114,6 @@
             this.txtTenBC.Name = "txtTenBC";
             this.txtTenBC.Size = new System.Drawing.Size(166, 30);
             this.txtTenBC.TabIndex = 0;
-            // 
-            // txtMaBC
-            // 
-            this.txtMaBC.Location = new System.Drawing.Point(157, 54);
-            this.txtMaBC.Name = "txtMaBC";
-            this.txtMaBC.Size = new System.Drawing.Size(166, 30);
-            this.txtMaBC.TabIndex = 0;
             // 
             // dgvDanhSach
             // 
@@ -149,7 +150,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(366, 9);
+            this.label1.Location = new System.Drawing.Point(413, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(193, 42);
             this.label1.TabIndex = 2;
@@ -164,6 +165,7 @@
             this.btnThem.TabIndex = 3;
             this.btnThem.Text = "Thêm ";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -184,6 +186,7 @@
             this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThoat
             // 
@@ -231,7 +234,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDanhSach);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BangCap";
             this.Text = "BangCap";
             this.groupBox1.ResumeLayout(false);
@@ -249,7 +252,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvMaBC;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTenBC;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtMaBC;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTenBC;
@@ -261,5 +263,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblTongSobangCap;
+        private System.Windows.Forms.Label lblMaBangCap;
     }
 }
