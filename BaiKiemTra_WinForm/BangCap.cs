@@ -107,6 +107,7 @@ namespace BaiKiemTra_WinForm
         {
             try
             {
+                //text
                 var deleteBangCap = Context.BANGCAPs.FirstOrDefault(b => b.TenBangCap.Equals(txtTenBC.Text));
                 if (deleteBangCap != null)
                 {
