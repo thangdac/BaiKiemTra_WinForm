@@ -124,7 +124,7 @@
             this.dgvDanhSach.AllowUserToDeleteRows = false;
             this.dgvDanhSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDanhSach.BackgroundColor = System.Drawing.SystemColors.MenuBar;
-            this.dgvDanhSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDanhSach.ColumnHeadersHeight = 29;
             this.dgvDanhSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvMaBC,
             this.dgvTenBC,
@@ -220,7 +220,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(681, 418);
+            this.label5.Location = new System.Drawing.Point(662, 418);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(223, 25);
             this.label5.TabIndex = 2;
