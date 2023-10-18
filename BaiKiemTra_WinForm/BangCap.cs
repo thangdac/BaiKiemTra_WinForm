@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
@@ -120,25 +121,40 @@ namespace BaiKiemTra_WinForm
         {
             if (rowIndex >= 0 && rowIndex < dgvDanhSach.Rows.Count)
             {
-                int selectedMaDocGia = int.Parse(lblMaBangCap.Text);
-                var selectedMember = Context.BANGCAPs.FirstOrDefault(dg => dg.MaBangCap == selectedMaDocGia);
-                if (selectedMember != null)
+                int selectedMaBangCap = int.Parse(lblMaBangCap.Text);
+                var selectedBangCap = Context.BANGCAPs.FirstOrDefault(bc => bc.MaBangCap == selectedMaBangCap);
+                if (selectedBangCap != null)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn bằng cấp ?", "Xác nhận xoá", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
+                    if (selectedBangCap.NHANVIENs.Count > 0)
                     {
-                        Context.BANGCAPs.Remove(selectedMember);
-                        Context.SaveChanges();
-                        MessageBox.Show("Xoá bằng cấp thành công!");
-                        rowIndex = 0;
-                        reset();
+                        DialogResult dialogResult = MessageBox.Show("Bằng cấp này đang có nhân viên liên quan. Bạn có chắc chắn muốn xóa bằng cấp này?", "Xác nhận xoá", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            Context.BANGCAPs.Remove(selectedBangCap);
+                            Context.SaveChanges();
+                            MessageBox.Show("Xoá bằng cấp thành công!");
+                            rowIndex = 0;
+                            reset();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Bằng cấp này không có nhân viên liên quan.", "Xác nhận xoá", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            Context.BANGCAPs.Remove(selectedBangCap);
+                            Context.SaveChanges();
+                            MessageBox.Show("Xoá bằng cấp thành công!");
+                            rowIndex = -1;
+                            reset();
+                        }
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn bằng cấp để xóa.");
-            }
+        else
+        {
+            MessageBox.Show("Vui lòng chọn bằng cấp để xóa.");
+        }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -154,7 +170,7 @@ namespace BaiKiemTra_WinForm
                     {
                         Context.SaveChanges();
                         MessageBox.Show("Cập nhật bằng cấp thành công!");
-                        rowIndex = 0;
+                        rowIndex = -1;
                         reset();
                     }
                     catch (Exception ex)
