@@ -38,6 +38,7 @@
             this.dgvDanhSach = new System.Windows.Forms.DataGridView();
             this.dgvMaBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTenBC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvSoluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.lblTongSobangCap = new System.Windows.Forms.Label();
+            this.cbLoc = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSach)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +61,7 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.txtTenBC);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 75);
+            this.groupBox1.Location = new System.Drawing.Point(12, 132);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(357, 257);
             this.groupBox1.TabIndex = 0;
@@ -107,6 +109,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(166, 30);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtTenBC
             // 
@@ -117,14 +120,18 @@
             // 
             // dgvDanhSach
             // 
+            this.dgvDanhSach.AllowUserToAddRows = false;
+            this.dgvDanhSach.AllowUserToDeleteRows = false;
             this.dgvDanhSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDanhSach.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dgvDanhSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDanhSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvMaBC,
-            this.dgvTenBC});
-            this.dgvDanhSach.Location = new System.Drawing.Point(420, 75);
+            this.dgvTenBC,
+            this.dgvSoluong});
+            this.dgvDanhSach.Location = new System.Drawing.Point(420, 132);
             this.dgvDanhSach.Name = "dgvDanhSach";
+            this.dgvDanhSach.ReadOnly = true;
             this.dgvDanhSach.RowHeadersVisible = false;
             this.dgvDanhSach.RowHeadersWidth = 51;
             this.dgvDanhSach.RowTemplate.Height = 24;
@@ -138,19 +145,28 @@
             this.dgvMaBC.HeaderText = "Mã Bằng Cấp";
             this.dgvMaBC.MinimumWidth = 6;
             this.dgvMaBC.Name = "dgvMaBC";
+            this.dgvMaBC.ReadOnly = true;
             // 
             // dgvTenBC
             // 
             this.dgvTenBC.HeaderText = "Tên Bằng Cấp";
             this.dgvTenBC.MinimumWidth = 6;
             this.dgvTenBC.Name = "dgvTenBC";
+            this.dgvTenBC.ReadOnly = true;
+            // 
+            // dgvSoluong
+            // 
+            this.dgvSoluong.HeaderText = "Số Lượng Nhân Viên";
+            this.dgvSoluong.MinimumWidth = 6;
+            this.dgvSoluong.Name = "dgvSoluong";
+            this.dgvSoluong.ReadOnly = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(413, 9);
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(448, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(193, 42);
             this.label1.TabIndex = 2;
@@ -159,7 +175,7 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(37, 355);
+            this.btnThem.Location = new System.Drawing.Point(37, 412);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(102, 43);
             this.btnThem.TabIndex = 3;
@@ -170,17 +186,18 @@
             // btnSua
             // 
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Location = new System.Drawing.Point(169, 355);
+            this.btnSua.Location = new System.Drawing.Point(169, 412);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(85, 43);
             this.btnSua.TabIndex = 3;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Location = new System.Drawing.Point(281, 355);
+            this.btnXoa.Location = new System.Drawing.Point(281, 412);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(82, 43);
             this.btnXoa.TabIndex = 3;
@@ -191,7 +208,7 @@
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(886, 427);
+            this.btnThoat.Location = new System.Drawing.Point(886, 484);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(85, 43);
             this.btnThoat.TabIndex = 3;
@@ -203,7 +220,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(714, 361);
+            this.label5.Location = new System.Drawing.Point(714, 418);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(181, 25);
             this.label5.TabIndex = 2;
@@ -213,18 +230,31 @@
             // 
             this.lblTongSobangCap.AutoSize = true;
             this.lblTongSobangCap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTongSobangCap.Location = new System.Drawing.Point(910, 361);
+            this.lblTongSobangCap.Location = new System.Drawing.Point(910, 418);
             this.lblTongSobangCap.Name = "lblTongSobangCap";
             this.lblTongSobangCap.Size = new System.Drawing.Size(27, 25);
             this.lblTongSobangCap.TabIndex = 2;
             this.lblTongSobangCap.Text = "...";
             // 
+            // cbLoc
+            // 
+            this.cbLoc.AutoSize = true;
+            this.cbLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbLoc.Location = new System.Drawing.Point(677, 79);
+            this.cbLoc.Name = "cbLoc";
+            this.cbLoc.Size = new System.Drawing.Size(294, 24);
+            this.cbLoc.TabIndex = 4;
+            this.cbLoc.Text = "Lọc Bằng Cấp Không có nhân viên ";
+            this.cbLoc.UseVisualStyleBackColor = true;
+            this.cbLoc.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // BangCap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(1069, 561);
+            this.Controls.Add(this.cbLoc);
             this.Controls.Add(this.lblTongSobangCap);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnXoa);
@@ -249,8 +279,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvDanhSach;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvMaBC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTenBC;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
@@ -264,5 +292,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblTongSobangCap;
         private System.Windows.Forms.Label lblMaBangCap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvMaBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTenBC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvSoluong;
+        private System.Windows.Forms.CheckBox cbLoc;
     }
 }
