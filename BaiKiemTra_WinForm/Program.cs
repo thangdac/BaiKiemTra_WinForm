@@ -16,7 +16,7 @@ namespace BaiKiemTra_WinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BangCap());
+            Application.Run(new Form1());
         }
     }
 }
